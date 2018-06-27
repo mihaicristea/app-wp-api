@@ -6,11 +6,8 @@ use Exception;
 
 class View
 {
-
     public function __construct(string $path)
     {
-        //$path = APP_PATH . '/modules/Core/src/View/' . $path . '.phtml';
-
         $path = $this->prepareFile($path);
 
         if (file_exists($path)) {
@@ -22,6 +19,7 @@ class View
 
     /**
      * @param string $path - module/tree/file
+     * @return string
      * @throws Exception
      */
     private function prepareFile(string $path)
@@ -48,16 +46,16 @@ class View
             return ucfirst($n);
         }, $path);
 
-        var_dump($path); die();
-
         $module = $path[0];
         array_shift($path);
 
-        $tree = implode('/', $path);
+        $tree = '';
+        if (count($path) > 0) {
+            $tree = implode('/', $path) . '/';
+        }
 
-        $realPath = APP_PATH . "/modules/$module/src/View/ . $tree . '/' . $file" . '.phtml';
+        $realPath = APP_PATH . "/modules/$module/src/View/$tree$file";
 
-        var_dump($realPath); die();
-
+        return $realPath;
     }
 }

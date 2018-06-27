@@ -62,7 +62,7 @@ class GenericController
 
     private function article()
     {
-        new View('frontend-digi/article');
+        new View('frontend/article');
         die('article');
     }
 
