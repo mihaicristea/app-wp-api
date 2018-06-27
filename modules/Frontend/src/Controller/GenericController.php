@@ -4,7 +4,6 @@ namespace Frontend\Controller;
 
 use Exception;
 use Core\Common\View;
-use Core\Common\Cfg;
 use Core\Common\Download;
 
 class GenericController
@@ -13,36 +12,26 @@ class GenericController
 
     public function __construct()
     {
-
-        if (isset($_GET['p'])) {
-
-            $this->url = explode('/', $_GET['p']);
-            $this->index();
-
-        } else {
-            new HomepageController();
-        }
+        $this->index();
     }
 
     private function index()
     {
 
-        if (count($this->url) > 0) {
-            rsort($this->url);
-        }
+//        if (count($this->url) > 0) {
+//            rsort($this->url);
+//        }
+//
+//        $slug = $this->url[0];
 
-        $slug = $this->url[0];
 
-        $cfg = Cfg::getCfg();
-
-        foreach ($cfg['routing-type'] as $type => $apiUrl) {
+        foreach ($this->cfg['routing-type'] as $type => $apiUrl) {
             switch ($type) {
                 case 'posts':
 
                     $params = ['slug' => $slug];
-                    $url = $cfg['wp-api-url'] . $apiUrl . '?' . http_build_query($params);
-                    $download = new Download($url);
-                    $data = $download->exportJson();
+
+                    $data = $this->getData($apiUrl, $params);
 
                     if (! is_array($data)) {
                         throw new Exception('API response is not array!');
@@ -62,7 +51,7 @@ class GenericController
 
     private function article()
     {
-        new View('frontend/article');
+        new View('frontend/articles/article', ['mix' => 'cool']);
         die('article');
     }
 
@@ -71,5 +60,12 @@ class GenericController
 
     private function page()
     {}
+
+    private function getData($apiUrl, $params)
+    {
+        $url = $this->cfg['wp-api-url'] . $apiUrl . '?' . http_build_query($params);
+        $download = new Download($url);
+        $data = $download->exportJson();
+    }
 
 }

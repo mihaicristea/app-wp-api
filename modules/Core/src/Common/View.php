@@ -6,11 +6,17 @@ use Exception;
 
 class View
 {
-    public function __construct(string $path)
+    public function __construct(string $path, array $params = [])
     {
         $path = $this->prepareFile($path);
 
         if (file_exists($path)) {
+
+            // Send variables to view file
+            if (count($params) > 0) {
+                extract($params);
+            }
+
             require $path;
         } else {
             throw new Exception("File ($path) not found!");
@@ -37,16 +43,11 @@ class View
         $file = $path[count($path) - 1] . '.phtml';
         array_pop($path);
 
-        $path = array_map(function($n) {
-
-            $n = explode('-', $n);
-            $n = array_map('ucfirst', $n);
-            $n = implode('', $n);
-
-            return ucfirst($n);
-        }, $path);
-
         $module = $path[0];
+        $module = explode('-', $module);
+        $module = array_map('ucfirst', $module);
+        $module = implode('', $module);
+
         array_shift($path);
 
         $tree = '';
