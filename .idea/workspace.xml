@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de54260c-e5f7-4b36-b523-23a9acfc9602" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/modules/Frontend/src/Controller/AbstractController.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/htdocs/index.php" afterPath="$PROJECT_DIR$/htdocs/index.php" />
-      <change beforePath="$PROJECT_DIR$/modules/Core/src/Common/Url.php" afterPath="$PROJECT_DIR$/modules/Core/src/Common/Url.php" />
       <change beforePath="$PROJECT_DIR$/modules/Frontend/src/Controller/ArticleController.php" afterPath="$PROJECT_DIR$/modules/Frontend/src/Controller/ArticleController.php" />
       <change beforePath="$PROJECT_DIR$/modules/Frontend/src/Controller/GenericController.php" afterPath="$PROJECT_DIR$/modules/Frontend/src/Controller/GenericController.php" />
     </list>
@@ -32,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GenericController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GenericController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/Frontend/src/Controller/GenericController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="31" column="66" lean-forward="false" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
+            <state relative-caret-position="504">
+              <caret line="40" column="49" lean-forward="false" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
               <folding>
                 <element signature="e#39#59#0#PHP" expanded="true" />
               </folding>
@@ -54,11 +53,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArticleController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ArticleController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modules/Frontend/src/Controller/ArticleController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="602">
-              <caret line="42" column="9" lean-forward="false" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+            <state relative-caret-position="342">
+              <caret line="19" column="31" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+              <folding>
+                <element signature="e#39#60#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/Frontend/src/Controller/AbstractController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding>
                 <element signature="e#39#59#0#PHP" expanded="true" />
               </folding>
@@ -121,8 +132,9 @@
         <option value="$PROJECT_DIR$/modules/Core/src/Common/View.php" />
         <option value="$PROJECT_DIR$/modules/Core/src/Common/Url.php" />
         <option value="$PROJECT_DIR$/htdocs/index.php" />
-        <option value="$PROJECT_DIR$/modules/Frontend/src/Controller/ArticleController.php" />
         <option value="$PROJECT_DIR$/modules/Frontend/src/Controller/GenericController.php" />
+        <option value="$PROJECT_DIR$/modules/Frontend/src/Controller/ArticleController.php" />
+        <option value="$PROJECT_DIR$/modules/Frontend/src/Controller/AbstractController.php" />
       </list>
     </option>
   </component>
@@ -305,7 +317,7 @@
       <workItem from="1530091658776" duration="113000" />
       <workItem from="1530091797959" duration="9406000" />
       <workItem from="1530106099020" duration="5665000" />
-      <workItem from="1530130989891" duration="10433000" />
+      <workItem from="1530130989891" duration="11028000" />
     </task>
     <task id="LOCAL-00001" summary="view template">
       <created>1530135493992</created>
@@ -328,11 +340,18 @@
       <option name="project" value="LOCAL" />
       <updated>1530139720699</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="article class">
+      <created>1530141434156</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1530141434156</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30905000" />
+    <option name="totallyTimeSpent" value="31500000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="28" width="1537" height="912" extended-state="6" />
@@ -698,22 +717,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/Frontend/src/Controller/ArticleController.php">
+    <entry file="file://$PROJECT_DIR$/modules/Frontend/src/Controller/GenericController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="42" column="9" lean-forward="false" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+        <state relative-caret-position="504">
+          <caret line="40" column="49" lean-forward="false" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
           <folding>
             <element signature="e#39#59#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/Frontend/src/Controller/GenericController.php">
+    <entry file="file://$PROJECT_DIR$/modules/Frontend/src/Controller/AbstractController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" column="66" lean-forward="false" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
+        <state relative-caret-position="162">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
             <element signature="e#39#59#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/Frontend/src/Controller/ArticleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="31" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding>
+            <element signature="e#39#60#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

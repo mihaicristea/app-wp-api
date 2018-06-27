@@ -2,32 +2,16 @@
 
 namespace Frontend\Controller;
 
-use Core\Common\Cfg;
-use Core\Common\Download;
-use Core\Common\Url;
 use Core\Common\View;
 use Exception;
 
-class ArticleController
+class ArticleController extends AbstractController
 {
-    public function __construct()
+    protected $type = 'posts';
+
+    public function __construct(array $params)
     {
-        $urlSegments = Url::getUrlSegments();
-
-        if (count($urlSegments) > 0) {
-            array_reverse($urlSegments);
-        }
-
-        $slug = $urlSegments[0];
-
-        $params = [
-            'slug' => $slug
-        ];
-
-        $cfg = Cfg::getCfg();
-        $url = $cfg['wp-api-url'] . $cfg['routing-type']['posts'] . '?' . http_build_query($params);
-        $download = new Download($url);
-        $data = $download->exportJson();
+        $data = $this->getData($params);
 
         if (! is_array($data)) {
             throw new Exception('API response is not array!');
@@ -42,4 +26,5 @@ class ArticleController
             die('article');
         }
     }
+
 }
