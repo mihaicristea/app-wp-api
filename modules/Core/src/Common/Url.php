@@ -4,38 +4,40 @@ namespace Core\Common;
 
 class Url
 {
-    private $url;
-    private $urlSegments;
+    private static $url;
+    private static $urlSegments;
 
-    public function __construct()
+    private static function setUrl()
     {
-        if (isset($this->url)) {
-            return $this->url;
-        }
-
         if (isset($_GET['p']) && trim($_GET['p']) != '') {
 
-            $this->url = trim($_GET['p']);
+            self::$url = trim($_GET['p']);
 
             $urlSegments = explode('/', $_GET['p']);
 
             if (count($urlSegments) > 0) {
-                $this->urlSegments = $urlSegments;
+                self::$urlSegments = $urlSegments;
             }
 
         } else {
-            $this->url = '';
-            $this->urlSegments = [];
+            self::$url = '';
+            self::$urlSegments = [];
         }
     }
 
-    public function getUrl()
+    public static function getUrl()
     {
-        return $this->url;
+        if (! isset(self::$url)) {
+            self::setUrl();
+        }
+        return self::$url;
     }
 
-    public function getUrlSegments()
+    public static function getUrlSegments()
     {
-        return $this->urlSegments;
+        if (! isset(self::$url)) {
+            self::setUrl();
+        }
+        return self::$urlSegments;
     }
 }

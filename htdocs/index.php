@@ -7,7 +7,6 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Frontend\Controller\GenericController;
 use Core\Common\Cfg;
-use Core\Common\Url;
 
 try {
 
@@ -17,12 +16,11 @@ try {
 
     define('APP_PATH', $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . $cfg['app_path']);
 
-    new Url();
-
     new GenericController();
 
 
 } catch (Exception $e) {
     echo $e->getMessage();
+    die('@TODO: handle exception');
     //@TODO: handle exception
 }
