@@ -1,6 +1,8 @@
 <?php
 
-class Template
+namespace Core\Common;
+
+class View
 {
     public function __construct(string $file)
     {

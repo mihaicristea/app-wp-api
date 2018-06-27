@@ -3,6 +3,7 @@
 namespace Core\Common;
 
 use Exception;
+use Core\Common\Template;
 
 class GenericController
 {
@@ -64,6 +65,7 @@ class GenericController
 
     private function article()
     {
+        new View('article');
         die('article');
     }
 
