@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Common;
+namespace Frontend\Controller;
 
 class HomepageController
 {

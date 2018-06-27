@@ -5,13 +5,8 @@ error_reporting(E_ALL);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Core\Common\GenericController;
+use Frontend\Controller\GenericController;
 use Core\Common\Cfg;
-
-
-
-
-
 
 try {
 
@@ -24,15 +19,7 @@ try {
     new GenericController();
 
 
-
-//    $url = 'http://localhost/wordpress/index.php/wp-json/wp/v2/posts';
-//
-//    $download = new Download($url);
-//
-//    $data = $download->exportJson();
-//
-//    print_r($data);
-
 } catch (Exception $e) {
+    echo $e->getMessage();
     //@TODO: handle exception
 }

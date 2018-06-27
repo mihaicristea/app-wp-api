@@ -9,7 +9,7 @@ class ComposerStaticInit8a6d19669b3cd6a7e5969dee64b5fe58
     public static $prefixLengthsPsr4 = array (
         'F' => 
         array (
-            'Frontend\\' => 5,
+            'Frontend\\' => 9,
         ),
         'C' => 
         array (
@@ -20,11 +20,11 @@ class ComposerStaticInit8a6d19669b3cd6a7e5969dee64b5fe58
     public static $prefixDirsPsr4 = array (
         'Frontend\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/module/Frontend/src',
+            0 => __DIR__ . '/../..' . '/modules/Frontend/src',
         ),
         'Core\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/module/Core/src',
+            0 => __DIR__ . '/../..' . '/modules/Core/src',
         ),
     );
 

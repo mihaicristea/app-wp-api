@@ -1,8 +1,8 @@
 {
     "autoload": {
         "psr-4": {
-            "Frontend\\": "module/Frontend/src",
-            "Core\\": "module/Core/src"
+            "Frontend\\": "modules/Frontend/src",
+            "Core\\": "modules/Core/src"
         }
     }
 }

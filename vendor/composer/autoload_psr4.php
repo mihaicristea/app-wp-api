@@ -6,6 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Frontend\\' => array($baseDir . '/module/Frontend/src'),
-    'Core\\' => array($baseDir . '/module/Core/src'),
+    'Frontend\\' => array($baseDir . '/modules/Frontend/src'),
+    'Core\\' => array($baseDir . '/modules/Core/src'),
 );
