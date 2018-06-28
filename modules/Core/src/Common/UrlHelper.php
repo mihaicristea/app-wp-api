@@ -2,7 +2,7 @@
 
 namespace Core\Common;
 
-class Url
+class UrlHelper
 {
     private static $url;
     private static $urlSegments;

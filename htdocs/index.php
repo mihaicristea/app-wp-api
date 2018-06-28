@@ -18,7 +18,6 @@ try {
 
     new GenericController();
 
-
 } catch (Exception $e) {
     echo $e->getMessage();
     die('@TODO: handle exception');

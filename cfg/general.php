@@ -4,7 +4,7 @@ return array(
 
     'app_path' => 'app',
 
-    'wp-api-url' => 'https://demo.wp-api.org/wp-json',
+    'wp-api-url' => 'http://localhost/wordpress/wp-json',
 
     'routing-type' => [
         'posts' => '/wp/v2/posts',

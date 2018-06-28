@@ -2,8 +2,7 @@
 
 namespace Frontend\Controller;
 
-use Core\Common\Cfg;
-use Core\Common\Url;
+use Core\Common\UrlHelper;
 
 class GenericController
 {
@@ -14,19 +13,17 @@ class GenericController
 
     private function index()
     {
-        $url = Url::getUrl();
+        $url = UrlHelper::getUrl();
 
         if ($url == '') {
             //@TODO: homepage controller
             die('homepage');
         }
 
-        $cfg = Cfg::getCfg();
-
-        $urlSegments = Url::getUrlSegments();
+        $urlSegments = UrlHelper::getUrlSegments();
 
         if (count($urlSegments) > 0) {
-            array_reverse($urlSegments);
+            $urlSegments = array_reverse($urlSegments);
         }
 
         $slug = $urlSegments[0];
@@ -35,17 +32,24 @@ class GenericController
             'slug' => $slug
         ];
 
-        foreach ($cfg['routing-type'] as $type => $apiUrl) {
-            switch ($type) {
-                case 'posts':
-                    new ArticleController($params);
-                    break;
-
-                default:
-                    throw new \Exception('Controller not found!');
-            }
+        /**
+         * Article Controller
+         */
+        $controller = new ArticleController($params);
+        if ($controller->isViewLoaded()) {
+            return;
         }
 
+        /**
+         * Category Controller
+         */
+        $controller =  new CategoryController($params);
+        if ($controller->isViewLoaded()) {
+            return;
+        }
+
+
+        throw new \Exception('Controller not found!');
     }
 
 }
