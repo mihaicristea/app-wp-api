@@ -1,15 +1,18 @@
 <?php
 
-var_dump($view->renderWidget([
+if (! isset($posts)) {
+    return 'Post data missing!';
+}
+
+$view->renderWidget([
     'widget' => \Frontend\Widget\Breadcrumbs::class,
-    'method' => 'renderWidget',
+    'method' => 'getPostBreadcrumbs',
     'params' => [
-        'identifier' => '/124748474/970x250-digi24'
+        'post' => $posts
     ],
-]));
+]);
 
-
-if (! isset($posts, $posts->content->rendered)) {
+if (! isset($posts->content->rendered)) {
     return 'Post content missing!';
 }
 

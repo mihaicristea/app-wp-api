@@ -17,7 +17,6 @@ try {
 
     define('APP_PATH', $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . $cfg['app_path']);
 
-
     new GenericController();
 
     Template::render();
