@@ -7,6 +7,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Frontend\Controller\GenericController;
 use Core\Common\Cfg;
+use Core\Common\Template;
 
 try {
 
@@ -16,7 +17,10 @@ try {
 
     define('APP_PATH', $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . $cfg['app_path']);
 
+
     new GenericController();
+
+    Template::render();
 
 } catch (Exception $e) {
     echo $e->getMessage();

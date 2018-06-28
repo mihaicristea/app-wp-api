@@ -32,12 +32,14 @@ class GenericController
             'slug' => $slug
         ];
 
+        $isViewLoaded = false;
+
         /**
          * Article Controller
          */
         $controller = new ArticleController($params);
         if ($controller->isViewLoaded()) {
-            return;
+            $isViewLoaded = true;
         }
 
         /**
@@ -45,11 +47,12 @@ class GenericController
          */
         $controller =  new CategoryController($params);
         if ($controller->isViewLoaded()) {
-            return;
+            $isViewLoaded = true;
         }
 
-
-        throw new \Exception('Controller not found!');
+        if (! $isViewLoaded) {
+            throw new \Exception('Controller not found!');
+        }
     }
 
 }

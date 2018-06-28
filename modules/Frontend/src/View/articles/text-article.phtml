@@ -1,0 +1,7 @@
+<?php
+
+if (! isset($posts, $posts->content->rendered)) {
+    return 'Post content missing!';
+}
+
+echo $posts->content->rendered;

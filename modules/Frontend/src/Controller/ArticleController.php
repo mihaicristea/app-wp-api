@@ -2,6 +2,7 @@
 
 namespace Frontend\Controller;
 
+use Core\Common\Template;
 use Core\Common\View;
 use Exception;
 
@@ -28,29 +29,32 @@ class ArticleController extends AbstractController
                 throw new Exception("Property (post) is missing!");
             }
 
+            $this->params['posts'] = $data;
+
             switch ($data->type) {
                 case 'post':
-                    return $this->article();
+                    return $this->textArticle();
 
                 case 'video':
                     return $this->videoArticle();
             }
 
             throw new Exception("Post type unexpeted! ($data->type)");
-
         }
     }
 
-    private function article()
+    private function textArticle()
     {
+        Template::setTemplate('frontend/layout/layout');
         $this->setViewLoaded();
-        new View('frontend/articles/article', ['mix' => 'cool']);
+        new View('frontend/articles/text-article', $this->params);
     }
 
     private function videoArticle()
     {
+        Template::setTemplate('frontend/layout/layout');
         $this->setViewLoaded();
-        new View('frontend/articles/video-article', ['mix' => 'cool']);
+        new View('frontend/articles/video-article', $this->params);
     }
 
 }

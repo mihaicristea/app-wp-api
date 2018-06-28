@@ -8,6 +8,7 @@ use Core\Common\Download;
 abstract class AbstractController
 {
     protected $viewLoaded = false;
+    protected $params = [];
 
     protected function getData($params)
     {

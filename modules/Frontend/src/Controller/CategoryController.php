@@ -35,6 +35,7 @@ class CategoryController extends AbstractController
             $subcategories = $this->getData($params);
 
             if (is_array($subcategories) && count($subcategories) > 0) {
+                $this->params['subcategories'] = $subcategories;
                 return $this->categoryWithSubcategories($subcategories);
             }
 
@@ -48,6 +49,7 @@ class CategoryController extends AbstractController
             $posts = $this->getData($params);
 
             if (is_array($posts) && count($posts) > 0) {
+                $this->params['posts'] = $posts;
                 return $this->categoryWithPosts($posts);
             }
 
@@ -57,13 +59,10 @@ class CategoryController extends AbstractController
     /**
      * Category with subcategories - list categories
      */
-    private function categoryWithSubcategories(array $subcategories)
+    private function categoryWithSubcategories()
     {
         $this->setViewLoaded();
-        $params = [
-            'subcategories' => $subcategories
-        ];
-        return new View('frontend/categories/category-subcategories-list', $params);
+        return new View('frontend/categories/category-subcategories-list', $this->params);
     }
 
     /**
@@ -72,10 +71,7 @@ class CategoryController extends AbstractController
     private function categoryWithPosts(array $posts)
     {
         $this->setViewLoaded();
-        $params = [
-            'posts' => $posts
-        ];
-        return new View('frontend/categories/category-posts-list', $params);
+        return new View('frontend/categories/category-posts-list', $this->params);
     }
 
 }
