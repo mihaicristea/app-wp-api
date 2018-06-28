@@ -2,7 +2,7 @@
 
 namespace Frontend\Controller;
 
-use ApiWpHelper;
+use Core\Common\ApiWpHelper;
 
 abstract class AbstractController
 {

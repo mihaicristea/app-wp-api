@@ -45,11 +45,15 @@ class Download
         return $result;
     }
 
-    public function exportJson()
+    public function exportJson($arrayFormat = false)
     {
         $data = $this->get();
 
         if ($data !== false) {
+
+            if ($arrayFormat) {
+                return json_decode($data, true);
+            }
 
             return json_decode($data);
         }
