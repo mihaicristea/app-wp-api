@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de54260c-e5f7-4b36-b523-23a9acfc9602" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/modules/Core/src/Common/AbstractWidget.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/modules/Core/src/Common/FileHelper.php" afterPath="$PROJECT_DIR$/modules/Core/src/Common/FileHelper.php" />
       <change beforePath="$PROJECT_DIR$/modules/Core/src/Common/ViewHelper.php" afterPath="$PROJECT_DIR$/modules/Core/src/Common/ViewHelper.php" />
       <change beforePath="$PROJECT_DIR$/modules/Frontend/src/Widget/Breadcrumbs.php" afterPath="$PROJECT_DIR$/modules/Frontend/src/Widget/Breadcrumbs.php" />
     </list>
@@ -22,8 +22,8 @@
       <file leaf-file-name="FileHelper.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/Core/src/Common/FileHelper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="58" column="21" lean-forward="false" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
+            <state relative-caret-position="462">
+              <caret line="46" column="50" lean-forward="false" selection-start-line="46" selection-start-column="44" selection-end-line="46" selection-end-column="50" />
               <folding>
                 <element signature="e#31#45#0#PHP" expanded="true" />
               </folding>
@@ -31,41 +31,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="View.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/Core/src/Common/View.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="1" lean-forward="false" selection-start-line="12" selection-start-column="1" selection-end-line="22" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="text-article.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modules/Frontend/src/View/articles/text-article.phtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="51" lean-forward="false" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewHelper.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ViewHelper.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modules/Core/src/Common/ViewHelper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+            <state relative-caret-position="475">
+              <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Breadcrumbs.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Breadcrumbs.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/Frontend/src/Widget/Breadcrumbs.php">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="40" lean-forward="false" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
+              <folding>
+                <element signature="e#35#66#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractWidget.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/Core/src/Common/AbstractWidget.php">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="190">
-              <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+              <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -149,9 +141,10 @@
         <option value="$PROJECT_DIR$/modules/Frontend/src/Controller/ViewHelper.php" />
         <option value="$PROJECT_DIR$/modules/Core/src/Common/View.php" />
         <option value="$PROJECT_DIR$/modules/Frontend/src/View/articles/text-article.phtml" />
+        <option value="$PROJECT_DIR$/modules/Frontend/src/Widget/Breadcrumbs.php" />
+        <option value="$PROJECT_DIR$/modules/Core/src/Common/AbstractWidget.php" />
         <option value="$PROJECT_DIR$/modules/Core/src/Common/FileHelper.php" />
         <option value="$PROJECT_DIR$/modules/Core/src/Common/ViewHelper.php" />
-        <option value="$PROJECT_DIR$/modules/Frontend/src/Widget/Breadcrumbs.php" />
       </list>
     </option>
   </component>
@@ -353,7 +346,7 @@
       <workItem from="1530091797959" duration="9406000" />
       <workItem from="1530106099020" duration="5665000" />
       <workItem from="1530130989891" duration="11028000" />
-      <workItem from="1530166698466" duration="24951000" />
+      <workItem from="1530166698466" duration="26364000" />
     </task>
     <task id="LOCAL-00001" summary="view template">
       <created>1530135493992</created>
@@ -411,11 +404,18 @@
       <option name="project" value="LOCAL" />
       <updated>1530194278536</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="widget class">
+      <created>1530194567941</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1530194567941</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56451000" />
+    <option name="totallyTimeSpent" value="57864000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="28" width="2507" height="1413" extended-state="6" />
@@ -453,21 +453,14 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="view template" />
     <MESSAGE value="article class" />
-    <option name="LAST_COMMIT_MESSAGE" value="article class" />
+    <MESSAGE value="widget class" />
+    <option name="LAST_COMMIT_MESSAGE" value="widget class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/modules/Core/src/Common/Download.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="33" column="28" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/Core/src/Common/View.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -788,6 +781,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/modules/Frontend/src/Widget/Breadcrumbs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="40" lean-forward="false" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
+          <folding>
+            <element signature="e#35#66#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/modules/Core/src/Common/View.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -804,10 +807,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/modules/Core/src/Common/AbstractWidget.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/modules/Core/src/Common/FileHelper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="58" column="21" lean-forward="false" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
+        <state relative-caret-position="462">
+          <caret line="46" column="50" lean-forward="false" selection-start-line="46" selection-start-column="44" selection-end-line="46" selection-end-column="50" />
           <folding>
             <element signature="e#31#45#0#PHP" expanded="true" />
           </folding>
@@ -816,16 +827,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/Core/src/Common/ViewHelper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/Frontend/src/Widget/Breadcrumbs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        <state relative-caret-position="475">
+          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
           <folding />
         </state>
       </provider>

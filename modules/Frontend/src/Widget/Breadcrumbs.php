@@ -2,13 +2,13 @@
 
 namespace Frontend\Widget;
 
+use Core\Common\AbstractWidget;
 use Core\Common\View;
 
-class Breadcrumbs
+class Breadcrumbs extends AbstractWidget
 {
-    public function __construct()
+    public function renderWidget()
     {
-        $params = [];
         new View('frontend/widgets/breadcrumbs', $params);
     }
 }

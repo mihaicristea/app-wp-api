@@ -14,8 +14,13 @@ class ViewHelper
 
         $widget = FileHelper::getWidget($params['widget']);
 
-        new $widget();
+        $widget = new $widget();
 
+        if (! method_exists($widget, $params['method'])) {
+            throw new Exception("Invalid method! ({$params['method']})");
+        }
+
+        $widget->$params['method'];
 
     }
 }
