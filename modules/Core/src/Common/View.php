@@ -12,6 +12,8 @@ class View
 
         if (file_exists($file)) {
 
+            $params['view'] = new ViewHelper;
+
             $content = FileHelper::renderPhpToString($file, $params);
 
             Template::addView($content);

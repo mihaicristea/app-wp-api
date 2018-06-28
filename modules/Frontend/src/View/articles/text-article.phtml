@@ -1,5 +1,14 @@
 <?php
 
+var_dump($view->renderWidget([
+    'widget' => \Frontend\Widget\Breadcrumbs::class,
+    'method' => 'renderWidget',
+    'params' => [
+        'identifier' => '/124748474/970x250-digi24'
+    ],
+]));
+
+
 if (! isset($posts, $posts->content->rendered)) {
     return 'Post content missing!';
 }

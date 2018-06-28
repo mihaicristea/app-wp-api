@@ -3,6 +3,7 @@
 namespace Core\Common;
 
 use Exception;
+use Frontend\Controller\ArticleController;
 
 class FileHelper
 {
@@ -14,13 +15,13 @@ class FileHelper
     public static function prepareFile(string $path)
     {
         if (preg_match("/[^a-z0-9\/-]+/i", $path)) {
-            throw new Exception("Invalid path");
+            throw new Exception("Invalid view path");
         }
 
         $path = explode('/', $path);
 
         if (count($path) < 2) {
-            throw new Exception("Invalid path!");
+            throw new Exception("Invalid view path!");
         }
 
         $file = $path[count($path) - 1] . '.phtml';
@@ -43,6 +44,39 @@ class FileHelper
         return $realPath;
     }
 
+    public static function prepareWidgetFile(string $path)
+    {
+        $path = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $path);
+
+        if (preg_match("/[^a-zA-Z0-9\/]+/i", $path)) {
+            throw new Exception("Invalid widget path");
+        }
+
+        $path = explode('/', $path);
+
+        if (count($path) < 2) {
+            throw new Exception("Invalid widget path!");
+        }
+
+        $file = $path[count($path) - 1];
+        array_pop($path);
+
+        $module = $path[0];
+
+        array_shift($path);
+
+        $tree = '';
+        if (count($path) > 0) {
+            $tree = implode('/', $path) . '/';
+        }
+
+        $realPath = "$module/$tree$file";
+
+
+
+        return $realPath;
+    }
+
     public static function renderPhpToString($file, array $params = [])
     {
         if (! empty($params)) {
@@ -55,4 +89,7 @@ class FileHelper
         ob_end_clean();
         return $output;
     }
+
+    public static function renderWidget()
+    {}
 }
