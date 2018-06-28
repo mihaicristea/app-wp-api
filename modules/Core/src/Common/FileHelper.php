@@ -44,37 +44,23 @@ class FileHelper
         return $realPath;
     }
 
-    public static function prepareWidgetFile(string $path)
+    public static function getWidget(string $class)
     {
-        $path = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $path);
-
-        if (preg_match("/[^a-zA-Z0-9\/]+/i", $path)) {
+        if (preg_match("/[^a-zA-Z0-9\\\]+/i", $class)) {
             throw new Exception("Invalid widget path");
         }
 
-        $path = explode('/', $path);
+        $class = explode('\\', $class);
 
-        if (count($path) < 2) {
+        if (count($class) < 2) {
             throw new Exception("Invalid widget path!");
         }
 
-        $file = $path[count($path) - 1];
-        array_pop($path);
-
-        $module = $path[0];
-
-        array_shift($path);
-
-        $tree = '';
-        if (count($path) > 0) {
-            $tree = implode('/', $path) . '/';
+        if (class_exists($class)) {
+            return $class;
         }
 
-        $realPath = "$module/$tree$file";
-
-
-
-        return $realPath;
+        return false;
     }
 
     public static function renderPhpToString($file, array $params = [])

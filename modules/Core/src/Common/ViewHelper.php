@@ -13,7 +13,7 @@ class ViewHelper
             throw new Exception('Invalid params! (widget and method)');
         }
 
-        $file = FileHelper::prepareWidgetFile($params['widget']);
+        $file = FileHelper::getWidget($params['widget']);
 
         var_dump($file); die();
 
