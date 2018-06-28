@@ -22,43 +22,26 @@ class Breadcrumbs extends AbstractWidget
             throw new Exception("Property categories missing!");
         }
 
-
         $mainCategory = $params['post']->categories[0];
 
         $this->categories = (array)$this->getAllCategories();
 
-        //print_r($this->categories); die();
-
         $tree = $this->getTreeCategoryById($mainCategory);
-        print_r($tree);
+        $tree = array_reverse($tree);
 
+        $breadcrumbs = [];
+        foreach ($tree as $category) {
+            $breadcrumbs[] = [
+                'link' => $category['link'],
+                'name' => $category['name']
+            ];
+        }
 
-//        $breadcrumbs = array_reverse($breadcrumbs);
-//
-//        $out = array();
-//
-//        if (! empty($prepend)) {
-//            foreach ($prepend as $p) {
-//                $out[] = $p;
-//            }
-//        }
-//
-//        $url = '';
-//        foreach ($breadcrumbs as $i => $breadcrumb) {
-//
-//            if ($i == 0) {
-//                $url .= $breadcrumb['url'];
-//            } else {
-//                $url .= '/' .$breadcrumb['url'];
-//            }
-//
-//            $out[] = array(
-//                'url' => $url,
-//                'title' => $breadcrumb['title'],
-//            );
-//        }
-//
-//        return $out;
+        $params = [
+            'breadcrumbs' => $breadcrumbs
+        ];
+
+        new View('frontend/widgets/breadcrumbs', $params);
 
     }
 
@@ -69,10 +52,8 @@ class Breadcrumbs extends AbstractWidget
         return ApiWpHelper::getData($apiParams, 'categories', true);
     }
 
-    private function getTreeCategoryById(int $id)
+    private function getTreeCategoryById(int $id, array &$tree = []) : array
     {
-        $tree = [];
-
         $key = array_search($id, array_column($this->categories, 'id'));
 
         if ($key === false) {
@@ -84,9 +65,10 @@ class Breadcrumbs extends AbstractWidget
         $tree[] = $category;
 
         if ($category['parent'] > 0) {
-            $tree[] = $this->getTreeCategoryById($category['parent']);
+            $this->getTreeCategoryById($category['parent'], $tree);
         }
 
         return $tree;
     }
+
 }

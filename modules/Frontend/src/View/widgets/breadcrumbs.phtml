@@ -1,5 +1,21 @@
 <?php
-var_dump($key);
+
+if (! isset($breadcrumbs) || ! is_array($breadcrumbs)) {
+    echo 'Param breadcrumbs missing!';
+    return;
+}
+
 ?>
 
-<div>breadcrumbs/test</div>
+<ul>
+
+    <?php
+
+    foreach ($breadcrumbs as $breadcrumb) {
+        ?>
+        <li><a href="<?php echo $breadcrumb['link']; ?>"><?php echo $breadcrumb['name']; ?></a></li>
+        <?php
+    }
+
+    ?>
+</ul>
