@@ -3,7 +3,6 @@
 namespace Core\Common;
 
 use Exception;
-use Frontend\Controller\ArticleController;
 
 class ViewHelper
 {
@@ -13,18 +12,10 @@ class ViewHelper
             throw new Exception('Invalid params! (widget and method)');
         }
 
-        $file = FileHelper::getWidget($params['widget']);
+        $widget = FileHelper::getWidget($params['widget']);
 
-        var_dump($file); die();
-
-        if (file_exists($file)) {
+        new $widget();
 
 
-
-        } else {
-            throw new Exception("File ({$params['widget']}) not found!");
-        }
-
-        new View('Frontend/Breadcrumbs', $params);
     }
 }

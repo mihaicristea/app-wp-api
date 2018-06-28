@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/modules/Core/src/Common/FileHelper.php" afterPath="$PROJECT_DIR$/modules/Core/src/Common/FileHelper.php" />
       <change beforePath="$PROJECT_DIR$/modules/Core/src/Common/ViewHelper.php" afterPath="$PROJECT_DIR$/modules/Core/src/Common/ViewHelper.php" />
+      <change beforePath="$PROJECT_DIR$/modules/Frontend/src/Widget/Breadcrumbs.php" afterPath="$PROJECT_DIR$/modules/Frontend/src/Widget/Breadcrumbs.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FileHelper.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FileHelper.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/Core/src/Common/FileHelper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="709">
-              <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+            <state relative-caret-position="690">
+              <caret line="58" column="21" lean-forward="false" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
               <folding>
                 <element signature="e#31#45#0#PHP" expanded="true" />
               </folding>
@@ -53,11 +54,19 @@
       <file leaf-file-name="ViewHelper.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/Core/src/Common/ViewHelper.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-              <folding>
-                <element signature="e#31#45#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="304">
+              <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Breadcrumbs.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/modules/Frontend/src/Widget/Breadcrumbs.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -135,14 +144,14 @@
         <option value="$PROJECT_DIR$/modules/Frontend/src/View/layout/layout.phtml" />
         <option value="$PROJECT_DIR$/htdocs/index.php" />
         <option value="$PROJECT_DIR$/modules/Core/src/Common/Template.php" />
-        <option value="$PROJECT_DIR$/modules/Frontend/src/Widget/Breadcrumbs.php" />
         <option value="$PROJECT_DIR$/modules/Frontend/src/View/widgets/breadcrumbs.phtml" />
         <option value="$PROJECT_DIR$/modules/Frontend/src/Controller/AbstractController.php" />
         <option value="$PROJECT_DIR$/modules/Frontend/src/Controller/ViewHelper.php" />
         <option value="$PROJECT_DIR$/modules/Core/src/Common/View.php" />
         <option value="$PROJECT_DIR$/modules/Frontend/src/View/articles/text-article.phtml" />
-        <option value="$PROJECT_DIR$/modules/Core/src/Common/ViewHelper.php" />
         <option value="$PROJECT_DIR$/modules/Core/src/Common/FileHelper.php" />
+        <option value="$PROJECT_DIR$/modules/Core/src/Common/ViewHelper.php" />
+        <option value="$PROJECT_DIR$/modules/Frontend/src/Widget/Breadcrumbs.php" />
       </list>
     </option>
   </component>
@@ -266,6 +275,15 @@
               <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="widgets" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="modules" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Widget" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -335,7 +353,7 @@
       <workItem from="1530091797959" duration="9406000" />
       <workItem from="1530106099020" duration="5665000" />
       <workItem from="1530130989891" duration="11028000" />
-      <workItem from="1530166698466" duration="24665000" />
+      <workItem from="1530166698466" duration="24951000" />
     </task>
     <task id="LOCAL-00001" summary="view template">
       <created>1530135493992</created>
@@ -386,11 +404,18 @@
       <option name="project" value="LOCAL" />
       <updated>1530193833064</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="article class">
+      <created>1530194278536</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1530194278536</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56165000" />
+    <option name="totallyTimeSpent" value="56451000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="28" width="2507" height="1413" extended-state="6" />
@@ -739,14 +764,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/Frontend/src/Widget/Breadcrumbs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="21" lean-forward="false" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/Core/src/Common/Template.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
@@ -787,23 +804,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/Core/src/Common/ViewHelper.php">
+    <entry file="file://$PROJECT_DIR$/modules/Core/src/Common/FileHelper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+        <state relative-caret-position="690">
+          <caret line="58" column="21" lean-forward="false" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
           <folding>
             <element signature="e#31#45#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modules/Core/src/Common/FileHelper.php">
+    <entry file="file://$PROJECT_DIR$/modules/Core/src/Common/ViewHelper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding>
-            <element signature="e#31#45#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="304">
+          <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/Frontend/src/Widget/Breadcrumbs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>

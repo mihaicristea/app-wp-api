@@ -9,6 +9,6 @@ class Breadcrumbs
     public function __construct()
     {
         $params = [];
-        new View('frontend/articles/text-article', $params);
+        new View('frontend/widgets/breadcrumbs', $params);
     }
 }

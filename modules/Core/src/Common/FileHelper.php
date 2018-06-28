@@ -50,9 +50,9 @@ class FileHelper
             throw new Exception("Invalid widget path");
         }
 
-        $class = explode('\\', $class);
+        $classArr = explode('\\', $class);
 
-        if (count($class) < 2) {
+        if (count($classArr) < 2) {
             throw new Exception("Invalid widget path!");
         }
 
@@ -75,7 +75,4 @@ class FileHelper
         ob_end_clean();
         return $output;
     }
-
-    public static function renderWidget()
-    {}
 }
