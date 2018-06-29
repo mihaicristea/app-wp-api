@@ -67,15 +67,17 @@ class UrlHelper
 
         $post = $params['post'];
 
-        $mainCategory = $post->categories[0];
-
-        $tree = CategoryHelper::getTreeCategoryById($mainCategory);
-        $tree = array_reverse($tree);
-
         $link = APP_URL;
 
-        foreach ($tree as $category) {
-            $link .= '/' . $category['slug'];
+        if (isset($post->categories) && is_array($post->categories) && ! empty($post->categories)) {
+            $mainCategory = $post->categories[0];
+
+            $tree = CategoryHelper::getTreeCategoryById($mainCategory);
+            $tree = array_reverse($tree);
+
+            foreach ($tree as $category) {
+                $link .= '/' . $category['slug'];
+            }
         }
 
         $link .= '/' . $post->slug;

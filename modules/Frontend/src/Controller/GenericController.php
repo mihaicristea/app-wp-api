@@ -16,8 +16,8 @@ class GenericController
         $url = UrlHelper::getUrl();
 
         if ($url == '') {
-            //@TODO: homepage controller
-            die('homepage');
+            $controller = new HomepageController();
+            return;
         }
 
         $urlSegments = UrlHelper::getUrlSegments();

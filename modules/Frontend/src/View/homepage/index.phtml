@@ -1,0 +1,74 @@
+<?php
+    if (isset($articles) && is_array($articles) && ! empty($articles)) {
+        ?>
+        <section>
+            <h2>Products</h2>
+            <ul class="list-group">
+                <?php
+                foreach ($articles as $post) {
+
+                    $params['post'] = $post;
+
+                    $url = \Core\Common\UrlHelper::getPostUrlTree($params);
+
+                    ?>
+                    <li class="list-group-item"><a href="<?php echo $url; ?>"><?php echo $post->title->rendered; ?></a></li>
+                    <?php
+                }
+                ?>
+            </ul>
+        </section>
+        <?php
+    }
+?>
+
+<?php
+if (isset($textArticles) && is_array($textArticles) && ! empty($textArticles)) {
+    ?>
+    <section>
+        <h2>Pinned Articles</h2>
+        <ul class="list-group">
+            <?php
+            foreach ($textArticles as $post) {
+
+                $params['post'] = $post;
+
+                $url = \Core\Common\UrlHelper::getPostUrlTree($params);
+
+                ?>
+                <li class="list-group-item"><a href="<?php echo $url; ?>"><?php echo $post->title->rendered; ?></a></li>
+                <?php
+            }
+            ?>
+        </ul>
+    </section>
+    <?php
+}
+?>
+
+
+<?php
+if (isset($videoArticles) && is_array($videoArticles) && ! empty($videoArticles)) {
+    ?>
+    <section>
+        <h2>Latest video articles</h2>
+        <ul class="list-group">
+            <?php
+            foreach ($videoArticles as $post) {
+
+                $params['post'] = $post;
+
+                $url = \Core\Common\UrlHelper::getPostUrlTree($params);
+
+                ?>
+                <li class="list-group-item"><a href="<?php echo $url; ?>"><?php echo $post->title->rendered; ?></a></li>
+                <?php
+            }
+            ?>
+        </ul>
+    </section>
+    <?php
+}
+?>
+
+
