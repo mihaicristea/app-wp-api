@@ -13,8 +13,7 @@ class ViewHelper
         }
 
         $widget = FileHelper::getWidget($params['widget']);
-        var_dump(new $widget($params)); die();
-        new $widget($params);
 
+        return new $widget($params);
     }
 }
