@@ -5,6 +5,7 @@ return array(
     'app_path' => 'app',
     'app_url' => 'http://localhost/app/htdocs',
 
+    //'wp-api-url' => 'https://demo.wp-api.org/wp-json',
     'wp-api-url' => 'http://localhost/wordpress/wp-json',
 
     'routing-type' => [

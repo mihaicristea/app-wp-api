@@ -59,11 +59,8 @@ class Breadcrumbs extends AbstractWidget
 
     }
 
-    public function getCategoryBreadcrumbs(array $params)
+    public function getCategoryBreadcrumbs(array $params = [])
     {
-        if (! isset($params['categories'])) {
-            throw new Exception("Param categories missing!");
-        }
 
         $urlSegments = UrlHelper::getUrlSegments();
 

@@ -50,12 +50,7 @@ class Download
         $data = $this->get();
 
         if ($data !== false) {
-
-            if ($arrayFormat) {
-                return json_decode($data, true);
-            }
-
-            return json_decode($data);
+            return json_decode($data, $arrayFormat);
         }
 
         return false;

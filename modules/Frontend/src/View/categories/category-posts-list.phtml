@@ -6,6 +6,15 @@ if (! isset($posts) || ! is_array($posts)) {
 
 ?>
 
+<?php
+$view->renderWidget([
+    'widget' => \Frontend\Widget\Breadcrumbs::class,
+    'method' => 'getCategoryBreadcrumbs',
+    'params' => [
+    ],
+]);
+?>
+
 <ul class="list-group">
     <?php
     foreach ($posts as $post) {
