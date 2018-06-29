@@ -7,15 +7,14 @@ if (! isset($breadcrumbs) || ! is_array($breadcrumbs)) {
 
 ?>
 
-<ul>
-
-    <?php
-
-    foreach ($breadcrumbs as $breadcrumb) {
-        ?>
-        <li><a href="<?php echo $breadcrumb['link']; ?>"><?php echo $breadcrumb['name']; ?></a></li>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
         <?php
-    }
-
-    ?>
-</ul>
+        foreach ($breadcrumbs as $breadcrumb) {
+            ?>
+            <li class="breadcrumb-item"><a href="<?php echo $breadcrumb['link']; ?>"><?php echo $breadcrumb['name']; ?></a></li>
+            <?php
+        }
+        ?>
+    </ol>
+</nav>

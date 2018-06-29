@@ -4,5 +4,8 @@
             "Frontend\\": "modules/Frontend/src",
             "Core\\": "modules/Core/src"
         }
+    } ,
+    "require": {
+        "twbs/bootstrap": "3.3.7"
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Frontend\Controller;
 
+use Core\Common\ApiWpHelper;
 use Core\Common\Template;
 use Core\Common\View;
 use Exception;
@@ -47,6 +48,14 @@ class ArticleController extends AbstractController
     {
         Template::setTemplate('frontend/layout/layout');
         $this->setViewLoaded();
+
+        //print_r($this->params); die();
+        $featuredImage = $this->resolveFeaturedImage();
+
+        if ($featuredImage) {
+            $this->params['featured_image'] = $featuredImage;
+        }
+
         new View('frontend/articles/text-article', $this->params);
     }
 
@@ -55,6 +64,21 @@ class ArticleController extends AbstractController
         Template::setTemplate('frontend/layout/layout');
         $this->setViewLoaded();
         new View('frontend/articles/video-article', $this->params);
+    }
+
+    private function resolveFeaturedImage()
+    {
+        $post = $this->params['posts'];
+        if (isset($post->featured_media)) {
+            $params = [
+                'id' => $post->featured_media
+            ];
+            $featuredImage = ApiWpHelper::getData($params, 'media');
+
+            return $featuredImage;
+        }
+
+        return false;
     }
 
 }

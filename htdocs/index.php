@@ -16,6 +16,7 @@ try {
     $cfg = Cfg::getCfg();
 
     define('APP_PATH', $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . $cfg['app_path']);
+    define('APP_URL', $cfg['app_url']);
 
     new GenericController();
 

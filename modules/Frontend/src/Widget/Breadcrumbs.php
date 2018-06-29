@@ -3,6 +3,7 @@
 namespace Frontend\Widget;
 
 use Core\Common\AbstractWidget;
+use Core\Common\Cfg;
 use Core\Common\View;
 use Exception;
 use Core\Common\ApiWpHelper;
@@ -22,20 +23,31 @@ class Breadcrumbs extends AbstractWidget
             throw new Exception("Property categories missing!");
         }
 
-        $mainCategory = $params['post']->categories[0];
+        $post = $params['post'];
+
+        $mainCategory = $post->categories[0];
 
         $this->categories = (array)$this->getAllCategories();
 
         $tree = $this->getTreeCategoryById($mainCategory);
         $tree = array_reverse($tree);
 
+        $link = APP_URL;
+
         $breadcrumbs = [];
         foreach ($tree as $category) {
+            $link .= '/' . $category['slug'];
             $breadcrumbs[] = [
-                'link' => $category['link'],
+                'link' => $link,
                 'name' => $category['name']
             ];
         }
+
+        $link .= '/' . $post->slug;
+        $breadcrumbs[] = [
+            'link' => $link,
+            'name' => $post->title->rendered
+        ];
 
         $params = [
             'breadcrumbs' => $breadcrumbs

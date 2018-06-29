@@ -4,6 +4,11 @@ if (! isset($posts)) {
     return 'Post data missing!';
 }
 
+if (! isset($posts->content->rendered)) {
+    echo 'Post content missing!';
+    return;
+}
+
 $view->renderWidget([
     'widget' => \Frontend\Widget\Breadcrumbs::class,
     'method' => 'getPostBreadcrumbs',
@@ -12,8 +17,18 @@ $view->renderWidget([
     ],
 ]);
 
-if (! isset($posts->content->rendered)) {
-    return 'Post content missing!';
+if (isset($featured_image)) {
+
+    $featured_image = $featured_image[0];
+    ?>
+    <section class="container">
+        <img src="<?php echo $featured_image->guid->rendered; ?>">
+    </section>
+    <?php
 }
 
-echo $posts->content->rendered;
+?>
+
+<section class="container">
+<?php echo $posts->content->rendered; ?>
+</section>
