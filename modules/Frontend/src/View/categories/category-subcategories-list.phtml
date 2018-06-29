@@ -1,1 +1,15 @@
-category subcategories list
+<?php
+
+if (! isset($subcategories) || ! is_array($subcategories)) {
+    echo 'Categories missing!';
+}
+?>
+<ul class="list-group">
+    <?php
+    foreach ($subcategories as $category) {
+        ?>
+        <li class="list-group-item"><a href="<?php ?>"><?php echo $category['name'] ?></a></li>
+        <?php
+    }
+    ?>
+</ul>

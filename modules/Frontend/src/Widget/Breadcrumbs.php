@@ -3,6 +3,7 @@
 namespace Frontend\Widget;
 
 use Core\Common\AbstractWidget;
+use Core\Common\CategoryHelper;
 use Core\Common\Cfg;
 use Core\Common\View;
 use Exception;
@@ -27,9 +28,9 @@ class Breadcrumbs extends AbstractWidget
 
         $mainCategory = $post->categories[0];
 
-        $this->categories = (array)$this->getAllCategories();
+        $this->categories = (array)CategoryHelper::getAllCategories();
 
-        $tree = $this->getTreeCategoryById($mainCategory);
+        $tree = CategoryHelper::getTreeCategoryById($mainCategory);
         $tree = array_reverse($tree);
 
         $link = APP_URL;
@@ -55,32 +56,6 @@ class Breadcrumbs extends AbstractWidget
 
         new View('frontend/widgets/breadcrumbs', $params);
 
-    }
-
-    private function getAllCategories() : array
-    {
-        $apiParams = [];
-
-        return ApiWpHelper::getData($apiParams, 'categories', true);
-    }
-
-    private function getTreeCategoryById(int $id, array &$tree = []) : array
-    {
-        $key = array_search($id, array_column($this->categories, 'id'));
-
-        if ($key === false) {
-            throw new Exception("Category with id $id is missing!");
-        }
-
-        $category = $this->categories[$key];
-
-        $tree[] = $category;
-
-        if ($category['parent'] > 0) {
-            $this->getTreeCategoryById($category['parent'], $tree);
-        }
-
-        return $tree;
     }
 
 }

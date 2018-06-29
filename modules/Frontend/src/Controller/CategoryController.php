@@ -3,6 +3,7 @@
 namespace Frontend\Controller;
 
 use Core\Common\ApiWpHelper;
+use Core\Common\CategoryHelper;
 use Core\Common\Template;
 use Core\Common\View;
 use Exception;
@@ -13,7 +14,7 @@ class CategoryController extends AbstractController
 
     public function __construct(array $params)
     {
-        $data = $this->getData($params);
+        $data = ApiWpHelper::getData($params, $this->type);
 
         if (! is_array($data)) {
             throw new Exception('API response is not array!');
@@ -27,7 +28,7 @@ class CategoryController extends AbstractController
 
             $category = $data[0];
 
-            $allCategories = $this->getAllCategories();
+            $allCategories = CategoryHelper::getAllCategories();
 
             // Determine if category have subcategories
             $keys = array_keys(array_column($allCategories, 'parent'), $category->id);
@@ -67,10 +68,11 @@ class CategoryController extends AbstractController
     /**
      * Category with subcategories - list categories
      */
-    private function categoryWithSubcategories()
+    private function categoryWithSubcategories(array $subcategories)
     {
         Template::setTemplate('frontend/layout/layout');
         $this->setViewLoaded();
+        $this->params['subcategories'] = $subcategories;
         return new View('frontend/categories/category-subcategories-list', $this->params);
     }
 
