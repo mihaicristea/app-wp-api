@@ -1,7 +1,8 @@
 <?php
 
 if (! isset($posts)) {
-    return 'Post data missing!';
+    echo 'Post data missing!';
+    return;
 }
 
 if (! isset($posts->content->rendered)) {

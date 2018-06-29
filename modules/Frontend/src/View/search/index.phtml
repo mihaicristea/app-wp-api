@@ -1,13 +1,19 @@
 <?php
 
 if (! isset($posts) || ! is_array($posts)) {
-    return 'Post data missing!';
+    echo 'Post data missing!';
+    return;
 }
 
-$view->renderWidget([
+if (empty($posts)) {
+    echo 'Empty results!';
+    return;
+}
+
+echo $view->renderWidget([
     'widget' => \Frontend\Widget\ListingArticles::class,
     'method' => 'renderWidget',
     'params' => [
-        'post' => $posts
+        'posts' => $posts
     ],
 ]);
