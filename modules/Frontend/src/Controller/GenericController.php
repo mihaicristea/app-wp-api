@@ -2,6 +2,7 @@
 
 namespace Frontend\Controller;
 
+use Core\Common\Cfg;
 use Core\Common\UrlHelper;
 
 class GenericController
@@ -15,9 +16,15 @@ class GenericController
     {
         $url = UrlHelper::getUrl();
 
+        $cfg = Cfg::getCfg();
+        $routes = $cfg['routes'];
+
+        if (isset($routes[$url])) {
+            return new $routes[$url];
+        }
+
         if ($url == '') {
-            $controller = new HomepageController();
-            return;
+            return new HomepageController();
         }
 
         $urlSegments = UrlHelper::getUrlSegments();

@@ -86,11 +86,4 @@ class CategoryController extends AbstractController
         return new View('frontend/categories/category-posts-list', $this->params);
     }
 
-    private function getAllCategories() : array
-    {
-        $apiParams = [];
-
-        return ApiWpHelper::getData($apiParams, 'categories', true);
-    }
-
 }

@@ -9,9 +9,17 @@ abstract class AbstractController
     protected $viewLoaded = false;
     protected $params = [];
 
-    protected function getData($params)
+    protected function getData(array $params)
     {
-        return ApiWpHelper::getData($params, $this->type);
+        foreach ($this->types as $type) {
+            $posts = ApiWpHelper::getData($params, $type);
+
+            if (is_array($posts) && ! empty($posts)) {
+                return $posts;
+            }
+        }
+
+        return [];
     }
 
     public function isViewLoaded()

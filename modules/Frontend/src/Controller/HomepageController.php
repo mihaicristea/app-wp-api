@@ -11,7 +11,7 @@ class HomepageController extends AbstractController
 
     public function __construct()
     {
-        $articles = $this->getTextArticles();
+        $articles = $this->getArticles();
         $textArticles = $this->getTextArticles();
         $videoArticles = $this->getVideoArticles();
 
@@ -26,10 +26,21 @@ class HomepageController extends AbstractController
 
     }
 
+    private function getArticles()
+    {
+        $params = [
+            'per_page' => 3,
+        ];
+
+        $textArticles = ApiWpHelper::getData($params, 'posts');
+
+        return $textArticles;
+    }
+
     private function getTextArticles()
     {
         $params = [
-            'type' => 'post',
+            'sticky' => true,
             'per_page' => 3,
         ];
 
@@ -41,11 +52,12 @@ class HomepageController extends AbstractController
     private function getVideoArticles()
     {
         $params = [
-            'type' => 'video',
+            'order_by' => 'date',
+            'order' => 'desc',
             'per_page' => 3,
         ];
 
-        $textArticles = ApiWpHelper::getData($params, 'posts');
+        $textArticles = ApiWpHelper::getData($params, 'videos');
 
         return $textArticles;
     }

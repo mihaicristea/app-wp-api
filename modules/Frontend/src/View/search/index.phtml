@@ -1,21 +1,9 @@
 <?php
 
 if (! isset($posts) || ! is_array($posts)) {
-    echo 'No posts!';
+    return 'Post data missing!';
 }
 
-?>
-
-<?php
-$view->renderWidget([
-    'widget' => \Frontend\Widget\Breadcrumbs::class,
-    'method' => 'getCategoryBreadcrumbs',
-    'params' => [
-    ],
-]);
-?>
-
-<?php
 $view->renderWidget([
     'widget' => \Frontend\Widget\ListingArticles::class,
     'method' => 'renderWidget',
@@ -23,4 +11,3 @@ $view->renderWidget([
         'post' => $posts
     ],
 ]);
-?>

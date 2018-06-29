@@ -14,5 +14,10 @@ return array(
         'pages' => '/wp/v2/pages',
         'taxonomies' => '/wp/v2/taxonomies',
         'media' => '/wp/v2/media',
+        'videos' => '/wp/v2/videos',
     ],
+
+    'routes' => [
+        'search' => \Frontend\Controller\SearchController::class,
+    ]
 );

@@ -21,28 +21,30 @@ class Breadcrumbs extends AbstractWidget
             throw new Exception("Param post missing!");
         }
 
-        if (! isset($params['post']->categories) || ! is_array($params['post']->categories)) {
-            throw new Exception("Property categories missing!");
-        }
+//        if (! isset($params['post']->categories) || ! is_array($params['post']->categories)) {
+//            throw new Exception("Property categories missing!");
+//        }
 
         $post = $params['post'];
 
-        $mainCategory = $post->categories[0];
-
-        $this->categories = CategoryHelper::getAllCategories();
-
-        $tree = CategoryHelper::getTreeCategoryById($mainCategory);
-        $tree = array_reverse($tree);
-
         $link = APP_URL;
 
-        $breadcrumbs = [];
-        foreach ($tree as $category) {
-            $link .= '/' . $category['slug'];
-            $breadcrumbs[] = [
-                'link' => $link,
-                'name' => $category['name']
-            ];
+        if (isset($params['post']->categories) && is_array($params['post']->categories) && ! empty($params['post']->categories)) {
+            $mainCategory = $post->categories[0];
+
+            $this->categories = CategoryHelper::getAllCategories();
+
+            $tree = CategoryHelper::getTreeCategoryById($mainCategory);
+            $tree = array_reverse($tree);
+
+            $breadcrumbs = [];
+            foreach ($tree as $category) {
+                $link .= '/' . $category['slug'];
+                $breadcrumbs[] = [
+                    'link' => $link,
+                    'name' => $category['name']
+                ];
+            }
         }
 
         $link .= '/' . $post->slug;

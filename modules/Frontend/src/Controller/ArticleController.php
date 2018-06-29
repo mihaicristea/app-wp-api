@@ -9,7 +9,7 @@ use Exception;
 
 class ArticleController extends AbstractController
 {
-    protected $type = 'posts';
+    protected $types = ['posts', 'videos'];
 
     public function __construct(array $params)
     {

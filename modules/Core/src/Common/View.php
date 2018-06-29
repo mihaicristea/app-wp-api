@@ -22,4 +22,21 @@ class View
             throw new Exception("File ($path) not found!");
         }
     }
+
+    public static function renderWidget(string $path, array $params = [])
+    {
+        $file = FileHelper::prepareFile($path);
+
+        if (file_exists($file)) {
+
+            $params['view'] = new ViewHelper;
+
+            $content = FileHelper::renderPhpToString($file, $params);
+
+            return $content;
+
+        } else {
+            throw new Exception("File ($path) not found!");
+        }
+    }
 }

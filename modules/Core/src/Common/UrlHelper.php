@@ -1,6 +1,7 @@
 <?php
 
 namespace Core\Common;
+use Exception;
 
 class UrlHelper
 {
@@ -59,10 +60,6 @@ class UrlHelper
     {
         if (! isset($params['post'])) {
             throw new Exception("Param post missing!");
-        }
-
-        if (! isset($params['post']->categories) || ! is_array($params['post']->categories)) {
-            throw new Exception("Property categories missing!");
         }
 
         $post = $params['post'];

@@ -37,7 +37,9 @@ class CategoryHelper
             return self::$categories;
         }
 
-        $apiParams = [];
+        $apiParams = [
+            'per_page' => 100
+        ];
 
         self::$categories = ApiWpHelper::getData($apiParams, 'categories', true);
 

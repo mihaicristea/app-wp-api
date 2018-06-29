@@ -3,20 +3,25 @@
         ?>
         <section>
             <h2>Products</h2>
-            <ul class="list-group">
-                <?php
-                foreach ($articles as $post) {
+            <?php
 
-                    $params['post'] = $post;
+//            var_dump($view->renderWidget([
+//                'widget' => \Frontend\Widget\ListingArticles::class,
+//                'method' => 'renderWidget',
+//                'params' => [
+//                    'posts' => $articles
+//                ],
+//            ]));
 
-                    $url = \Core\Common\UrlHelper::getPostUrlTree($params);
 
-                    ?>
-                    <li class="list-group-item"><a href="<?php echo $url; ?>"><?php echo $post->title->rendered; ?></a></li>
-                    <?php
-                }
-                ?>
-            </ul>
+            echo $view->renderWidget([
+                'widget' => \Frontend\Widget\ListingArticles::class,
+                'method' => 'renderWidget',
+                'params' => [
+                    'posts' => $articles
+                ],
+            ]);
+            ?>
         </section>
         <?php
     }
@@ -27,20 +32,17 @@ if (isset($textArticles) && is_array($textArticles) && ! empty($textArticles)) {
     ?>
     <section>
         <h2>Pinned Articles</h2>
-        <ul class="list-group">
-            <?php
-            foreach ($textArticles as $post) {
 
-                $params['post'] = $post;
+        <?php
+        echo $view->renderWidget([
+            'widget' => \Frontend\Widget\ListingArticles::class,
+            'method' => 'renderWidget',
+            'params' => [
+                'posts' => $textArticles
+            ],
+        ]);
+        ?>
 
-                $url = \Core\Common\UrlHelper::getPostUrlTree($params);
-
-                ?>
-                <li class="list-group-item"><a href="<?php echo $url; ?>"><?php echo $post->title->rendered; ?></a></li>
-                <?php
-            }
-            ?>
-        </ul>
     </section>
     <?php
 }
@@ -52,20 +54,16 @@ if (isset($videoArticles) && is_array($videoArticles) && ! empty($videoArticles)
     ?>
     <section>
         <h2>Latest video articles</h2>
-        <ul class="list-group">
-            <?php
-            foreach ($videoArticles as $post) {
 
-                $params['post'] = $post;
-
-                $url = \Core\Common\UrlHelper::getPostUrlTree($params);
-
-                ?>
-                <li class="list-group-item"><a href="<?php echo $url; ?>"><?php echo $post->title->rendered; ?></a></li>
-                <?php
-            }
-            ?>
-        </ul>
+        <?php
+        $view->renderWidget([
+            'widget' => \Frontend\Widget\ListingArticles::class,
+            'method' => 'renderWidget',
+            'params' => [
+                'posts' => $videoArticles
+            ],
+        ]);
+        ?>
     </section>
     <?php
 }
