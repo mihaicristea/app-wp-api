@@ -3,7 +3,9 @@
 namespace Frontend\Controller;
 
 use Core\Common\Cfg;
+use Core\Common\Template;
 use Core\Common\UrlHelper;
+use Core\Common\View;
 
 class GenericController
 {
@@ -58,7 +60,8 @@ class GenericController
         }
 
         if (! $isViewLoaded) {
-            throw new \Exception('Controller not found!');
+            Template::setTemplate('frontend/layout/layout');
+            return new View('frontend/404', []);
         }
     }
 

@@ -57,6 +57,7 @@ class CategoryController extends AbstractController
                 ];
 
                 $posts = ApiWpHelper::getData($params, 'posts');
+
                 $this->params['countAll'] = count($posts);
 
                 $page = 1;
@@ -65,7 +66,7 @@ class CategoryController extends AbstractController
                     $page = $_GET['page'];
                 }
 
-                $offset = ($page - 1) * $this->params['itemsPerPage'] + 1;
+                $offset = ($page - 1) * $this->params['itemsPerPage'];
 
                 $params['offset'] = $offset;
                 $params['per_page'] = $this->params['itemsPerPage'];
