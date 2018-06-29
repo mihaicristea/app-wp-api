@@ -69,6 +69,7 @@ class ArticleController extends AbstractController
     {
         $post = $this->params['posts'];
         if (isset($post->featured_media)) {
+
             $params = [
                 'id' => $post->featured_media
             ];

@@ -4,16 +4,6 @@
         <section>
             <h2>Products</h2>
             <?php
-
-//            var_dump($view->renderWidget([
-//                'widget' => \Frontend\Widget\ListingArticles::class,
-//                'method' => 'renderWidget',
-//                'params' => [
-//                    'posts' => $articles
-//                ],
-//            ]));
-
-
             echo $view->renderWidget([
                 'widget' => \Frontend\Widget\ListingArticles::class,
                 'method' => 'renderWidget',
@@ -56,7 +46,7 @@ if (isset($videoArticles) && is_array($videoArticles) && ! empty($videoArticles)
         <h2>Latest video articles</h2>
 
         <?php
-        $view->renderWidget([
+        echo $view->renderWidget([
             'widget' => \Frontend\Widget\ListingArticles::class,
             'method' => 'renderWidget',
             'params' => [

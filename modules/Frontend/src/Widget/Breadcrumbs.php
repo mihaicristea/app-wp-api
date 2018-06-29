@@ -21,12 +21,7 @@ class Breadcrumbs extends AbstractWidget
             throw new Exception("Param post missing!");
         }
 
-//        if (! isset($params['post']->categories) || ! is_array($params['post']->categories)) {
-//            throw new Exception("Property categories missing!");
-//        }
-
         $post = $params['post'];
-
         $link = APP_URL;
 
         if (isset($params['post']->categories) && is_array($params['post']->categories) && ! empty($params['post']->categories)) {
@@ -57,8 +52,7 @@ class Breadcrumbs extends AbstractWidget
             'breadcrumbs' => $breadcrumbs
         ];
 
-        new View('frontend/widgets/breadcrumbs', $params);
-
+        return View::renderWidget('frontend/widgets/breadcrumbs', $params);
     }
 
     public function getCategoryBreadcrumbs(array $params = [])
@@ -86,7 +80,7 @@ class Breadcrumbs extends AbstractWidget
             'breadcrumbs' => $breadcrumbs
         ];
 
-        new View('frontend/widgets/breadcrumbs', $params);
+        return View::renderWidget('frontend/widgets/breadcrumbs', $params);
 
     }
 

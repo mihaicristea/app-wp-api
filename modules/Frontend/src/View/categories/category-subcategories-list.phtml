@@ -6,7 +6,7 @@ if (! isset($subcategories) || ! is_array($subcategories)) {
 ?>
 
 <?php
-$view->renderWidget([
+echo $view->renderWidget([
     'widget' => \Frontend\Widget\Breadcrumbs::class,
     'method' => 'getCategoryBreadcrumbs',
     'params' => [

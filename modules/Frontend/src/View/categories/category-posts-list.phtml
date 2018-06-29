@@ -7,7 +7,7 @@ if (! isset($posts) || ! is_array($posts)) {
 ?>
 
 <?php
-$view->renderWidget([
+echo $view->renderWidget([
     'widget' => \Frontend\Widget\Breadcrumbs::class,
     'method' => 'getCategoryBreadcrumbs',
     'params' => [
@@ -16,11 +16,11 @@ $view->renderWidget([
 ?>
 
 <?php
-$view->renderWidget([
+echo $view->renderWidget([
     'widget' => \Frontend\Widget\ListingArticles::class,
     'method' => 'renderWidget',
     'params' => [
-        'post' => $posts
+        'posts' => $posts
     ],
 ]);
 ?>

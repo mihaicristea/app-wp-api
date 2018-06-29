@@ -9,7 +9,7 @@ if (! isset($posts->content->rendered)) {
     return;
 }
 
-$view->renderWidget([
+echo $view->renderWidget([
     'widget' => \Frontend\Widget\Breadcrumbs::class,
     'method' => 'getPostBreadcrumbs',
     'params' => [
@@ -19,10 +19,15 @@ $view->renderWidget([
 
 if (isset($featured_image)) {
 
-    $featured_image = $featured_image[0];
+    if (isset($featured_image->media_details->sizes->large->source_url)) {
+        $img = $featured_image->media_details->sizes->large->source_url;
+    } else {
+        $img = $featured_image->media_details->sizes->full->source_url;
+    }
+
     ?>
     <section class="container">
-        <img src="<?php echo $featured_image->guid->rendered; ?>">
+        <img src="<?php echo $img; ?>">
     </section>
     <?php
 }
