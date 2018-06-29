@@ -43,4 +43,30 @@ class CategoryHelper
 
         return self::$categories;
     }
+
+
+    public static function getTreeCategoryBySlug(string $slug, array &$tree = []) : array
+    {
+        if (! isset(self::$categories)) {
+            self::getAllCategories();
+        }
+
+        $key = array_search($slug, array_column(self::$categories, 'slug'));
+
+        if ($key === false) {
+            throw new Exception("Category with id $slug is missing!");
+        }
+
+        $category = self::$categories[$key];
+
+        $tree[] = $category;
+
+        if ($category['parent'] > 0) {
+            self::getTreeCategoryById($category['parent'], $tree);
+        }
+
+        return $tree;
+    }
+
+
 }
