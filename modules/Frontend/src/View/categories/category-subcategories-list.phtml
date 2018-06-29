@@ -19,8 +19,11 @@ $view->renderWidget([
 <ul class="list-group">
     <?php
     foreach ($subcategories as $category) {
+
+        $url = \Core\Common\UrlHelper::getCategoryUrlTreeBySlug($category['slug']);
+
         ?>
-        <li class="list-group-item"><a href="<?php ?>"><?php echo $category['name'] ?></a></li>
+        <li class="list-group-item"><a href="<?php echo $url; ?>"><?php echo $category['name'] ?></a></li>
         <?php
     }
     ?>

@@ -1,5 +1,22 @@
 <?php
 
-if (isset($posts) && is_array($posts)) {
-    print_r($posts);
+if (! isset($posts) || ! is_array($posts)) {
+    echo 'No posts!';
 }
+
+?>
+
+<ul class="list-group">
+    <?php
+    foreach ($posts as $post) {
+
+        $params['post'] = $post;
+
+        $url = \Core\Common\UrlHelper::getPostUrlTree($params);
+
+        ?>
+        <li class="list-group-item"><a href="<?php echo $url; ?>"><?php echo $post->title->rendered; ?></a></li>
+        <?php
+    }
+    ?>
+</ul>

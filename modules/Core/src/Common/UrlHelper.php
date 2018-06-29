@@ -40,4 +40,47 @@ class UrlHelper
         }
         return self::$urlSegments;
     }
+
+    public static function getCategoryUrlTreeBySlug(string $slug)
+    {
+        $tree = CategoryHelper::getTreeCategoryBySlug($slug);
+        $tree = array_reverse($tree);
+
+        $link = APP_URL;
+
+        foreach ($tree as $category) {
+            $link .= '/' . $category['slug'];
+        }
+
+        return $link;
+    }
+
+    public static function getPostUrlTree(array $params)
+    {
+        if (! isset($params['post'])) {
+            throw new Exception("Param post missing!");
+        }
+
+        if (! isset($params['post']->categories) || ! is_array($params['post']->categories)) {
+            throw new Exception("Property categories missing!");
+        }
+
+        $post = $params['post'];
+
+        $mainCategory = $post->categories[0];
+
+        $tree = CategoryHelper::getTreeCategoryById($mainCategory);
+        $tree = array_reverse($tree);
+
+        $link = APP_URL;
+
+        foreach ($tree as $category) {
+            $link .= '/' . $category['slug'];
+        }
+
+        $link .= '/' . $post->slug;
+
+        return $link;
+
+    }
 }

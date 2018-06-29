@@ -54,10 +54,9 @@ class CategoryController extends AbstractController
                     'categories' => $category->id
                 ];
 
-                $posts = $this->getData($params);
+                $posts = ApiWpHelper::getData($params, 'posts');
 
                 if (is_array($posts) && count($posts) > 0) {
-                    $this->params['posts'] = $posts;
                     return $this->categoryWithPosts($posts);
                 }
             }
@@ -83,6 +82,7 @@ class CategoryController extends AbstractController
     {
         Template::setTemplate('frontend/layout/layout');
         $this->setViewLoaded();
+        $this->params['posts'] = $posts;
         return new View('frontend/categories/category-posts-list', $this->params);
     }
 

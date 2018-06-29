@@ -44,7 +44,6 @@ class CategoryHelper
         return self::$categories;
     }
 
-
     public static function getTreeCategoryBySlug(string $slug, array &$tree = []) : array
     {
         if (! isset(self::$categories)) {
