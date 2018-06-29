@@ -49,7 +49,6 @@ class ArticleController extends AbstractController
         Template::setTemplate('frontend/layout/layout');
         $this->setViewLoaded();
 
-        //print_r($this->params); die();
         $featuredImage = $this->resolveFeaturedImage();
 
         if ($featuredImage) {

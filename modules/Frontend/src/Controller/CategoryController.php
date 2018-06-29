@@ -2,6 +2,8 @@
 
 namespace Frontend\Controller;
 
+use Core\Common\ApiWpHelper;
+use Core\Common\Template;
 use Core\Common\View;
 use Exception;
 
@@ -23,34 +25,40 @@ class CategoryController extends AbstractController
 
         if (count($data) == 1) {
 
-            $data = $data[0];
+            $category = $data[0];
 
-            /**
-             * Resolve Category with subcategories
-             */
-            $params = [
-                'parent' => $data->id
-            ];
+            $allCategories = $this->getAllCategories();
 
-            $subcategories = $this->getData($params);
+            // Determine if category have subcategories
+            $keys = array_keys(array_column($allCategories, 'parent'), $category->id);
 
-            if (is_array($subcategories) && count($subcategories) > 0) {
-                $this->params['subcategories'] = $subcategories;
+            if (! empty($keys)) {
+
+                $subcategories = [];
+
+                foreach ($keys as $k) {
+                    $subcategories[] = $allCategories[$k];
+                }
+
+                /**
+                 * Resolve Category with subcategories
+                 */
                 return $this->categoryWithSubcategories($subcategories);
-            }
+            } else {
 
-            /**
-             * Resolve Final Category with posts
-             */
-            $params = [
-                'categories' => $data->id
-            ];
+                /**
+                 * Resolve Final Category with posts
+                 */
+                $params = [
+                    'categories' => $category->id
+                ];
 
-            $posts = $this->getData($params);
+                $posts = $this->getData($params);
 
-            if (is_array($posts) && count($posts) > 0) {
-                $this->params['posts'] = $posts;
-                return $this->categoryWithPosts($posts);
+                if (is_array($posts) && count($posts) > 0) {
+                    $this->params['posts'] = $posts;
+                    return $this->categoryWithPosts($posts);
+                }
             }
 
         }
@@ -61,6 +69,7 @@ class CategoryController extends AbstractController
      */
     private function categoryWithSubcategories()
     {
+        Template::setTemplate('frontend/layout/layout');
         $this->setViewLoaded();
         return new View('frontend/categories/category-subcategories-list', $this->params);
     }
@@ -70,8 +79,16 @@ class CategoryController extends AbstractController
      */
     private function categoryWithPosts(array $posts)
     {
+        Template::setTemplate('frontend/layout/layout');
         $this->setViewLoaded();
         return new View('frontend/categories/category-posts-list', $this->params);
+    }
+
+    private function getAllCategories() : array
+    {
+        $apiParams = [];
+
+        return ApiWpHelper::getData($apiParams, 'categories', true);
     }
 
 }
