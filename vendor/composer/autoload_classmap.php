@@ -6,4 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Pagination\\Pagination' => $vendorDir . '/php-pagination/php-pagination/src/Pagination.php',
+    'Pagination\\StrategyGoogle' => $vendorDir . '/php-pagination/php-pagination/src/StrategyGoogle.php',
+    'Pagination\\StrategyJumping' => $vendorDir . '/php-pagination/php-pagination/src/StrategyJumping.php',
+    'Pagination\\StrategyPHPBB' => $vendorDir . '/php-pagination/php-pagination/src/StrategyPHPBB.php',
+    'Pagination\\StrategyPaginationInterface' => $vendorDir . '/php-pagination/php-pagination/src/StrategyPaginationInterface.php',
+    'Pagination\\StrategySimple' => $vendorDir . '/php-pagination/php-pagination/src/StrategySimple.php',
 );

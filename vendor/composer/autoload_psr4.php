@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Pagination\\' => array($vendorDir . '/php-pagination/php-pagination/src'),
     'Frontend\\' => array($baseDir . '/modules/Frontend/src'),
     'Core\\' => array($baseDir . '/modules/Core/src'),
 );

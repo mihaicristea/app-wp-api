@@ -24,3 +24,15 @@ echo $view->renderWidget([
     ],
 ]);
 ?>
+
+<?php
+echo $view->renderWidget([
+    'widget' => \Frontend\Widget\Pagination::class,
+    'method' => 'renderWidget',
+    'params' => [
+        'posts' => $posts,
+        'itemsPerPage' => $itemsPerPage,
+        'countAll' => $countAll,
+    ],
+]);
+?>

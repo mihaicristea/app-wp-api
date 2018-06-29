@@ -47,6 +47,8 @@ class CategoryController extends AbstractController
                 return $this->categoryWithSubcategories($subcategories);
             } else {
 
+                $this->params['itemsPerPage'] = 3;
+
                 /**
                  * Resolve Final Category with posts
                  */
@@ -54,6 +56,19 @@ class CategoryController extends AbstractController
                     'categories' => $category->id
                 ];
 
+                $posts = ApiWpHelper::getData($params, 'posts');
+                $this->params['countAll'] = count($posts);
+
+                $page = 1;
+
+                if (isset($_GET['page']) && is_numeric($_GET['page'])) {
+                    $page = $_GET['page'];
+                }
+
+                $offset = ($page - 1) * $this->params['itemsPerPage'] + 1;
+
+                $params['offset'] = $offset;
+                $params['per_page'] = $this->params['itemsPerPage'];
                 $posts = ApiWpHelper::getData($params, 'posts');
 
                 if (is_array($posts) && count($posts) > 0) {

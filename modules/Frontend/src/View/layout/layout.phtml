@@ -23,7 +23,10 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="<?php echo APP_URL ?>">WebSiteName</a>
+                <a class="navbar-brand" href="<?php echo APP_URL ?>">Website</a>
+                <form method="get" action="<?php echo APP_URL?>/search">
+                    <input type="text" class="form-control" name="q" placeholder="Search for...">
+                </form>
             </div>
         </div>
     </nav>

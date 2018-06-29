@@ -6,6 +6,7 @@
         }
     } ,
     "require": {
-        "twbs/bootstrap": "3.3.7"
+        "php-pagination/php-pagination": "2.0.1"
     }
+
 }

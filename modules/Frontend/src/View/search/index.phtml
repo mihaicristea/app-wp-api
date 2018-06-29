@@ -5,15 +5,36 @@ if (! isset($posts) || ! is_array($posts)) {
     return;
 }
 
-if (empty($posts)) {
-    echo 'Empty results!';
-    return;
-}
+?>
 
+
+<section>
+
+    <?php
+
+    if (empty($posts)) {
+        echo 'Empty results!';
+        return;
+    }
+
+    echo $view->renderWidget([
+        'widget' => \Frontend\Widget\ListingArticles::class,
+        'method' => 'renderWidget',
+        'params' => [
+            'posts' => $posts
+        ],
+    ]);
+
+    ?>
+
+</section>
+
+<?php
 echo $view->renderWidget([
-    'widget' => \Frontend\Widget\ListingArticles::class,
+    'widget' => \Frontend\Widget\Pagination::class,
     'method' => 'renderWidget',
     'params' => [
         'posts' => $posts
     ],
 ]);
+?>
